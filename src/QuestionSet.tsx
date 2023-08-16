@@ -39,7 +39,7 @@ export const QuestionSet = (prop: LoginInfo) => {
 
    useEffect(() =>{
 
-       var url = "https://qbui.azurewebsites.net/api/user/" + prop.data.guid + "/QuestionSets/";
+       var url = "http://13.250.108.181/api/user/" + prop.data.guid + "/QuestionSets/"; 
             axios.get(url)
                 .then((response) => {
                     setQuestionSet(response.data);

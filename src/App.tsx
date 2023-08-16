@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { useState } from "react";
-
+import { GoogleLogin } from 'react-google-login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -43,7 +43,7 @@ function App() {
 
     const handleLogin = (event: React.MouseEvent<HTMLButtonElement>) => {
 
-        const urlP = 'https://qbui.azurewebsites.net/api/login';
+        const urlP = 'http://13.250.108.181/api/login';
 
         //const data = '{"useremail": "' +applicationSession.emailID +'"}'
 
@@ -106,9 +106,9 @@ function App() {
                 applicationSession.isAuthenticated &&
                 <BrowserRouter>
                     <Routes>
-                            <Route exact  path="/student" element={<Student data={applicationSession} />}></Route>
-                            <Route exact  path="/admin" element={<Admin />}></Route>
-                            <Route exact path="/" element={<Layout data={applicationSession} handleMenuLogout={handleLogout} />}>
+                            <Route   path="/student" element={<Student data={applicationSession} />}></Route>
+                            <Route   path="/admin" element={<Admin />}></Route>
+                            <Route  path="/" element={<Layout data={applicationSession} handleMenuLogout={handleLogout} />}>
                             {/*<Route path="/faculty/:id" element={<FacultyDetial />}></Route>*/}
                             {/*<Route path="/faculty/add" element={<FacultyAdd />}></Route>*/}
                             {/*<Route path="/faculty/edit/:id" element={<FacultyAdd />}></Route>*/}

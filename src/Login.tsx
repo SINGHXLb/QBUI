@@ -1,5 +1,5 @@
 import './Login.css';
-
+import { GoogleLogin } from 'react-google-login';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,12 +13,26 @@ interface LoginInterface {
     //(event: React.MouseEvent<HTMLInputElement, MouseEvent>, index: number) => void
 
 }
-
+ 
+ 
 function Login(prop: LoginInterface ) { 
 
 
     return (
+
+    
+
         <Container>
+    <>
+        <GoogleLogin
+            clientId="778518108708-8davam7kf6okm6c8ggdmu9fcro21qag9.apps.googleusercontent.com"  // Use the client ID from the Google Developer Console
+            buttonText="Login with Google"
+            //onSuccess={}
+            //onFailure={}
+            cookiePolicy={'single_host_origin'}
+        />
+    </>
+
             
             <Row>
                 <Col md="3">
