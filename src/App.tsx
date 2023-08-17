@@ -1,8 +1,7 @@
 import React from 'react'; 
 import { useState } from "react";
-import { GoogleLogin } from 'react-google-login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 
 import './App.css';
 import Login from './Login';
@@ -12,6 +11,15 @@ import Student from './Student';
 import Admin from './Admin';
 
 function App() { 
+
+
+    const responseMessage = (response:CredentialResponse) => {
+        console.log(response);
+    };
+    const errorMessage = () => {
+        console.log("error");
+    };
+
 
     const appstateO = {
         token:"x",
@@ -95,8 +103,14 @@ function App() {
     } 
     if (! applicationSession.isAuthenticated)
     {
-        return <Login handleLogin={handleLogin} handleEmailChange={handleEmailChange} />;
-
+        return  (
+            <>
+        <><GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> 
+        </>
+         <><Login handleLogin={handleLogin} handleEmailChange={handleEmailChange} />;</>
+         </>
+        );
+        
     }
 
     return ( 
