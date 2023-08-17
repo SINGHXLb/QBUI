@@ -1,7 +1,9 @@
 import React from 'react'; 
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
+import { CredentialResponse, GoogleLogin  } from '@react-oauth/google';
+
+
 
 import './App.css';
 import Login from './Login';
@@ -94,7 +96,9 @@ function App() {
            setLocalStorage("applicationSession", ""); //session
           setApplicationSession(""); //React variable  
     }
-    const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    
+        const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setApplicationSession((applicationSession:any) => {
             var newState = Object.assign({}, applicationSession);
             newState.emailId = event.target.value.toString();
@@ -104,11 +108,10 @@ function App() {
     if (! applicationSession.isAuthenticated)
     {
         return  (
-            <>
-        <><GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> 
-        </>
-         <><Login handleLogin={handleLogin} handleEmailChange={handleEmailChange} />;</>
-         </>
+           
+         <Login handleLogin={handleLogin} handleEmailChange={handleEmailChange} />
+        
+        
         );
         
     }
