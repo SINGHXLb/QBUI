@@ -96,8 +96,7 @@ function App() {
            setLocalStorage("applicationSession", ""); //session
           setApplicationSession(""); //React variable  
     }
-
-    
+ 
         const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setApplicationSession((applicationSession:any) => {
             var newState = Object.assign({}, applicationSession);
